@@ -1,0 +1,757 @@
+version: '2'
+
+networks:
+  edge:
+
+services:
+  orderer0.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer0.example.com
+    container_name: orderer0.example.com
+    networks:
+      - edge
+  orderer1.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer1.example.com
+    container_name: orderer1.example.com
+    networks:
+      - edge
+  orderer2.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer2.example.com
+    container_name: orderer2.example.com
+    networks:
+      - edge
+  orderer3.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer3.example.com
+    container_name: orderer3.example.com
+    networks:
+      - edge
+  orderer4.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer4.example.com
+    container_name: orderer4.example.com
+    networks:
+      - edge
+  orderer5.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer5.example.com
+    container_name: orderer5.example.com
+    networks:
+      - edge
+  orderer6.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer6.example.com
+    container_name: orderer6.example.com
+    networks:
+      - edge
+  orderer7.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer7.example.com
+    container_name: orderer7.example.com
+    networks:
+      - edge
+  orderer8.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer8.example.com
+    container_name: orderer8.example.com
+    networks:
+      - edge
+  orderer9.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer9.example.com
+    container_name: orderer9.example.com
+    networks:
+      - edge
+  orderer10.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer10.example.com
+    container_name: orderer10.example.com
+    networks:
+      - edge
+  orderer11.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer11.example.com
+    container_name: orderer11.example.com
+    networks:
+      - edge
+  orderer12.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer12.example.com
+    container_name: orderer12.example.com
+    networks:
+      - edge
+  orderer13.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer13.example.com
+    container_name: orderer13.example.com
+    networks:
+      - edge
+  orderer14.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer14.example.com
+    container_name: orderer14.example.com
+    networks:
+      - edge
+  orderer15.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer15.example.com
+    container_name: orderer15.example.com
+    networks:
+      - edge
+  orderer16.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer16.example.com
+    container_name: orderer16.example.com
+    networks:
+      - edge
+  orderer17.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer17.example.com
+    container_name: orderer17.example.com
+    networks:
+      - edge
+  orderer18.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer18.example.com
+    container_name: orderer18.example.com
+    networks:
+      - edge
+  orderer19.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer19.example.com
+    container_name: orderer19.example.com
+    networks:
+      - edge
+  orderer20.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer20.example.com
+    container_name: orderer20.example.com
+    networks:
+      - edge
+  orderer21.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer21.example.com
+    container_name: orderer21.example.com
+    networks:
+      - edge
+  orderer22.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer22.example.com
+    container_name: orderer22.example.com
+    networks:
+      - edge
+  orderer23.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer23.example.com
+    container_name: orderer23.example.com
+    networks:
+      - edge
+  orderer24.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer24.example.com
+    container_name: orderer24.example.com
+    networks:
+      - edge
+  orderer25.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer25.example.com
+    container_name: orderer25.example.com
+    networks:
+      - edge
+  orderer26.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer26.example.com
+    container_name: orderer26.example.com
+    networks:
+      - edge
+  orderer27.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer27.example.com
+    container_name: orderer27.example.com
+    networks:
+      - edge
+  orderer28.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer28.example.com
+    container_name: orderer28.example.com
+    networks:
+      - edge
+  orderer29.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer29.example.com
+    container_name: orderer29.example.com
+    networks:
+      - edge
+  orderer30.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer30.example.com
+    container_name: orderer30.example.com
+    networks:
+      - edge
+  orderer31.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer31.example.com
+    container_name: orderer31.example.com
+    networks:
+      - edge
+  orderer32.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer32.example.com
+    container_name: orderer32.example.com
+    networks:
+      - edge
+  orderer33.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer33.example.com
+    container_name: orderer33.example.com
+    networks:
+      - edge
+  orderer34.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer34.example.com
+    container_name: orderer34.example.com
+    networks:
+      - edge
+  orderer35.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer35.example.com
+    container_name: orderer35.example.com
+    networks:
+      - edge
+  orderer36.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer36.example.com
+    container_name: orderer36.example.com
+    networks:
+      - edge
+  orderer37.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer37.example.com
+    container_name: orderer37.example.com
+    networks:
+      - edge
+  orderer38.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer38.example.com
+    container_name: orderer38.example.com
+    networks:
+      - edge
+  orderer39.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer39.example.com
+    container_name: orderer39.example.com
+    networks:
+      - edge
+  orderer40.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer40.example.com
+    container_name: orderer40.example.com
+    networks:
+      - edge
+  orderer41.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer41.example.com
+    container_name: orderer41.example.com
+    networks:
+      - edge
+  orderer42.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer42.example.com
+    container_name: orderer42.example.com
+    networks:
+      - edge
+  orderer43.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer43.example.com
+    container_name: orderer43.example.com
+    networks:
+      - edge
+  orderer44.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer44.example.com
+    container_name: orderer44.example.com
+    networks:
+      - edge
+  orderer45.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer45.example.com
+    container_name: orderer45.example.com
+    networks:
+      - edge
+  orderer46.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer46.example.com
+    container_name: orderer46.example.com
+    networks:
+      - edge
+  orderer47.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer47.example.com
+    container_name: orderer47.example.com
+    networks:
+      - edge
+  orderer48.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer48.example.com
+    container_name: orderer48.example.com
+    networks:
+      - edge
+  orderer49.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer49.example.com
+    container_name: orderer49.example.com
+    networks:
+      - edge
+  orderer50.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer50.example.com
+    container_name: orderer50.example.com
+    networks:
+      - edge
+  orderer51.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer51.example.com
+    container_name: orderer51.example.com
+    networks:
+      - edge
+  orderer52.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer52.example.com
+    container_name: orderer52.example.com
+    networks:
+      - edge
+  orderer53.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer53.example.com
+    container_name: orderer53.example.com
+    networks:
+      - edge
+  orderer54.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer54.example.com
+    container_name: orderer54.example.com
+    networks:
+      - edge
+  orderer55.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer55.example.com
+    container_name: orderer55.example.com
+    networks:
+      - edge
+  orderer56.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer56.example.com
+    container_name: orderer56.example.com
+    networks:
+      - edge
+  orderer57.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer57.example.com
+    container_name: orderer57.example.com
+    networks:
+      - edge
+  orderer58.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer58.example.com
+    container_name: orderer58.example.com
+    networks:
+      - edge
+  orderer59.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer59.example.com
+    container_name: orderer59.example.com
+    networks:
+      - edge
+  orderer60.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer60.example.com
+    container_name: orderer60.example.com
+    networks:
+      - edge
+  orderer61.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer61.example.com
+    container_name: orderer61.example.com
+    networks:
+      - edge
+  orderer62.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer62.example.com
+    container_name: orderer62.example.com
+    networks:
+      - edge
+  orderer63.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer63.example.com
+    container_name: orderer63.example.com
+    networks:
+      - edge
+  orderer64.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer64.example.com
+    container_name: orderer64.example.com
+    networks:
+      - edge
+  orderer65.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer65.example.com
+    container_name: orderer65.example.com
+    networks:
+      - edge
+  orderer66.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer66.example.com
+    container_name: orderer66.example.com
+    networks:
+      - edge
+  orderer67.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer67.example.com
+    container_name: orderer67.example.com
+    networks:
+      - edge
+  orderer68.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer68.example.com
+    container_name: orderer68.example.com
+    networks:
+      - edge
+  orderer69.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer69.example.com
+    container_name: orderer69.example.com
+    networks:
+      - edge
+  orderer70.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer70.example.com
+    container_name: orderer70.example.com
+    networks:
+      - edge
+  orderer71.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer71.example.com
+    container_name: orderer71.example.com
+    networks:
+      - edge
+  orderer72.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer72.example.com
+    container_name: orderer72.example.com
+    networks:
+      - edge
+  orderer73.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer73.example.com
+    container_name: orderer73.example.com
+    networks:
+      - edge
+  orderer74.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer74.example.com
+    container_name: orderer74.example.com
+    networks:
+      - edge
+  orderer75.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer75.example.com
+    container_name: orderer75.example.com
+    networks:
+      - edge
+  orderer76.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer76.example.com
+    container_name: orderer76.example.com
+    networks:
+      - edge
+  orderer77.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer77.example.com
+    container_name: orderer77.example.com
+    networks:
+      - edge
+  orderer78.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer78.example.com
+    container_name: orderer78.example.com
+    networks:
+      - edge
+  orderer79.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer79.example.com
+    container_name: orderer79.example.com
+    networks:
+      - edge
+  orderer80.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer80.example.com
+    container_name: orderer80.example.com
+    networks:
+      - edge
+  orderer81.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer81.example.com
+    container_name: orderer81.example.com
+    networks:
+      - edge
+  orderer82.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer82.example.com
+    container_name: orderer82.example.com
+    networks:
+      - edge
+  orderer83.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer83.example.com
+    container_name: orderer83.example.com
+    networks:
+      - edge
+  orderer84.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer84.example.com
+    container_name: orderer84.example.com
+    networks:
+      - edge
+  orderer85.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer85.example.com
+    container_name: orderer85.example.com
+    networks:
+      - edge
+  orderer86.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer86.example.com
+    container_name: orderer86.example.com
+    networks:
+      - edge
+  orderer87.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer87.example.com
+    container_name: orderer87.example.com
+    networks:
+      - edge
+  orderer88.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer88.example.com
+    container_name: orderer88.example.com
+    networks:
+      - edge
+  orderer89.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer89.example.com
+    container_name: orderer89.example.com
+    networks:
+      - edge
+  orderer90.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer90.example.com
+    container_name: orderer90.example.com
+    networks:
+      - edge
+  orderer91.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer91.example.com
+    container_name: orderer91.example.com
+    networks:
+      - edge
+  orderer92.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer92.example.com
+    container_name: orderer92.example.com
+    networks:
+      - edge
+  orderer93.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer93.example.com
+    container_name: orderer93.example.com
+    networks:
+      - edge
+  orderer94.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer94.example.com
+    container_name: orderer94.example.com
+    networks:
+      - edge
+  orderer95.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer95.example.com
+    container_name: orderer95.example.com
+    networks:
+      - edge
+  orderer96.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer96.example.com
+    container_name: orderer96.example.com
+    networks:
+      - edge
+  orderer97.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer97.example.com
+    container_name: orderer97.example.com
+    networks:
+      - edge
+  orderer98.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer98.example.com
+    container_name: orderer98.example.com
+    networks:
+      - edge
+  orderer99.example.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer99.example.com
+    container_name: orderer99.example.com
+    networks:
+      - edge
+
+  peer0.org1.example.com:
+    container_name: peer0.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.org1.example.com
+    networks:
+      - edge
+
+  peer1.org1.example.com:
+    container_name: peer1.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.org1.example.com
+    networks:
+      - edge
+
+  cli:
+    container_name: cli
+    image: hyperledger/fabric-tools
+    tty: true
+    stdin_open: true
+    environment:
+      - SYS_CHANNEL=sys_channel
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_PEER_ID=cli
+      - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./../chaincode/:/opt/gopath/src/github.com/chaincode
+        - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
+        - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
+    depends_on:
+      - orderer0.example.com
+      - orderer1.example.com
+      - orderer2.example.com
+      - orderer3.example.com
+      - peer0.org1.example.com
+    networks:
+      - edge

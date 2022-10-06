@@ -1,0 +1,41 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: example.com
+    EnableNodeOUs: true # 控制节点目录中是否生成配置文件
+    Specs:
+      - Hostname: orderer0
+      - Hostname: orderer1
+      - Hostname: orderer2
+      - Hostname: orderer3
+      - Hostname: orderer4
+      - Hostname: orderer5
+      - Hostname: orderer6
+      - Hostname: orderer7
+      - Hostname: orderer8
+      - Hostname: orderer9
+      - Hostname: orderer10
+      - Hostname: orderer11
+      - Hostname: orderer12
+      - Hostname: orderer13
+      - Hostname: orderer14
+      - Hostname: orderer15
+      - Hostname: orderer16
+      - Hostname: orderer17
+      - Hostname: orderer18
+
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+    Users:
+      Count: 1
+
+  # - Name: Org2
+  #   Domain: org2.example.com
+  #   EnableNodeOUs: true
+  #   Template:
+  #     Count: 2
+  #   Users:
+  #     Count: 1

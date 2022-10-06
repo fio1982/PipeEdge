@@ -1,0 +1,197 @@
+Organizations:
+    - &OrdererOrg
+        Name: OrdererOrg
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/example.com/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('OrdererMSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('OrdererMSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('OrdererMSP.admin')"
+    - &Org1
+        Name: Org1MSP
+        ID: Org1MSP
+        MSPDir: crypto-config/peerOrganizations/org1.example.com/msp
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org1MSP.admin', 'Org1MSP.peer', 'Org1MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org1MSP.admin', 'Org1MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org1MSP.admin')"
+        AnchorPeers:
+            - Host: peer0.org1.example.com
+              Port: 7051
+    
+    # - &Org2
+    #     # DefaultOrg defines the organization which is used in the sampleconfig
+    #     # of the fabric.git development environment
+    #     Name: Org2MSP
+    #     # ID to load the MSP definition as
+    #     ID: Org2MSP
+
+    #     MSPDir: crypto-config/peerOrganizations/org2.example.com/msp
+    #     # Policies defines the set of policies at this level of the config tree
+    #     # For organization policies, their canonical path is usually
+    #     #   /Channel/<Application|Orderer>/<OrgName>/<PolicyName>
+    #     Policies:
+    #         Readers:
+    #             Type: Signature
+    #             Rule: "OR('Org2MSP.admin', 'Org2MSP.peer', 'Org2MSP.client')"
+    #         Writers:
+    #             Type: Signature
+    #             Rule: "OR('Org2MSP.admin', 'Org2MSP.client')"
+    #         Admins:
+    #             Type: Signature
+    #             Rule: "OR('Org2MSP.admin')"
+
+    #     AnchorPeers:
+    #         # AnchorPeers defines the location of peers which can be used
+    #         # for cross org gossip communication.  Note, this value is only
+    #         # encoded in the genesis block in the Application section context
+    #         - Host: peer0.org2.example.com
+    #           Port: 9051
+
+Capabilities:
+    Channel: &ChannelCapabilities
+        V1_4_3: true
+        V1_3: false
+        V1_1: false
+
+    Orderer: &OrdererCapabilities
+        V1_4_2: true
+        V1_1: false
+
+    Application: &ApplicationCapabilities
+        V1_4_2: true
+        V1_3: false
+        V1_2: false
+        V1_1: false
+
+Application: &ApplicationDefaults
+    Organizations:
+
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+
+    Capabilities:
+        <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+    OrdererType: secretstuff # pbft
+    Addresses:
+      - orderer0.example.com:6050
+      - orderer1.example.com:6051
+      - orderer2.example.com:6052
+      - orderer3.example.com:6053
+      - orderer4.example.com:6054
+      - orderer5.example.com:6055
+      - orderer6.example.com:6056
+      - orderer7.example.com:6057
+      - orderer8.example.com:6058
+      - orderer9.example.com:6059
+      - orderer10.example.com:6060
+      - orderer11.example.com:6061
+      - orderer12.example.com:6062
+      - orderer13.example.com:6063
+      - orderer14.example.com:6064
+      - orderer15.example.com:6065
+      - orderer16.example.com:6066
+      - orderer17.example.com:6067
+      - orderer18.example.com:6068
+      - orderer19.example.com:6069
+      - orderer20.example.com:6070
+      - orderer21.example.com:6071
+      - orderer22.example.com:6072
+      - orderer23.example.com:6073
+      - orderer24.example.com:6074
+      - orderer25.example.com:6075
+      - orderer26.example.com:6076
+      - orderer27.example.com:6077
+      - orderer28.example.com:6078
+      - orderer29.example.com:6079
+      - orderer30.example.com:6080
+      - orderer31.example.com:6081
+      - orderer32.example.com:6082
+      - orderer33.example.com:6083
+      - orderer34.example.com:6084
+      - orderer35.example.com:6085
+      - orderer36.example.com:6086
+      - orderer37.example.com:6087
+      - orderer38.example.com:6088
+      - orderer39.example.com:6089
+
+    BatchTimeout: 2s
+    BatchSize:
+        MaxMessageCount: 1000
+        AbsoluteMaxBytes: 256 MB
+        PreferredMaxBytes: 512 KB
+
+    Organizations:
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        BlockValidation:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+
+Channel: &ChannelDefaults
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+
+    Capabilities:
+        <<: *ChannelCapabilities
+
+Profiles:
+    Genesis:
+        <<: *ChannelDefaults
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *Org1
+    Channel:
+        Consortium: SampleConsortium
+        <<: *ChannelDefaults
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1
+            Capabilities:
+                <<: *ApplicationCapabilities

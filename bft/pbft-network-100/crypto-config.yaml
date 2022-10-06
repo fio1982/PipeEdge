@@ -1,0 +1,123 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: example.com
+    EnableNodeOUs: true # 控制节点目录中是否生成配置文件
+    Specs:
+      - Hostname: orderer0
+      - Hostname: orderer1
+      - Hostname: orderer2
+      - Hostname: orderer3
+      - Hostname: orderer4
+      - Hostname: orderer5
+      - Hostname: orderer6
+      - Hostname: orderer7
+      - Hostname: orderer8
+      - Hostname: orderer9
+      - Hostname: orderer10
+      - Hostname: orderer11
+      - Hostname: orderer12
+      - Hostname: orderer13
+      - Hostname: orderer14
+      - Hostname: orderer15
+      - Hostname: orderer16
+      - Hostname: orderer17
+      - Hostname: orderer18
+      - Hostname: orderer19
+      - Hostname: orderer20
+      - Hostname: orderer21
+      - Hostname: orderer22
+      - Hostname: orderer23
+      - Hostname: orderer24
+      - Hostname: orderer25
+      - Hostname: orderer26
+      - Hostname: orderer27
+      - Hostname: orderer28
+      - Hostname: orderer29
+      - Hostname: orderer30
+      - Hostname: orderer31
+      - Hostname: orderer32
+      - Hostname: orderer33
+      - Hostname: orderer34
+      - Hostname: orderer35
+      - Hostname: orderer36
+      - Hostname: orderer37
+      - Hostname: orderer38
+      - Hostname: orderer39
+      - Hostname: orderer40
+      - Hostname: orderer41
+      - Hostname: orderer42
+      - Hostname: orderer43
+      - Hostname: orderer44
+      - Hostname: orderer45
+      - Hostname: orderer46
+      - Hostname: orderer47
+      - Hostname: orderer48
+      - Hostname: orderer49
+      - Hostname: orderer50
+      - Hostname: orderer51
+      - Hostname: orderer52
+      - Hostname: orderer53
+      - Hostname: orderer54
+      - Hostname: orderer55
+      - Hostname: orderer56
+      - Hostname: orderer57
+      - Hostname: orderer58
+      - Hostname: orderer59
+      - Hostname: orderer60
+      - Hostname: orderer61
+      - Hostname: orderer62
+      - Hostname: orderer63
+      - Hostname: orderer64
+      - Hostname: orderer65
+      - Hostname: orderer66
+      - Hostname: orderer67
+      - Hostname: orderer68
+      - Hostname: orderer69
+      - Hostname: orderer70
+      - Hostname: orderer71
+      - Hostname: orderer72
+      - Hostname: orderer73
+      - Hostname: orderer74
+      - Hostname: orderer75
+      - Hostname: orderer76
+      - Hostname: orderer77
+      - Hostname: orderer78
+      - Hostname: orderer79
+      - Hostname: orderer80
+      - Hostname: orderer81
+      - Hostname: orderer82
+      - Hostname: orderer83
+      - Hostname: orderer84
+      - Hostname: orderer85
+      - Hostname: orderer86
+      - Hostname: orderer87
+      - Hostname: orderer88
+      - Hostname: orderer89
+      - Hostname: orderer90
+      - Hostname: orderer91
+      - Hostname: orderer92
+      - Hostname: orderer93
+      - Hostname: orderer94
+      - Hostname: orderer95
+      - Hostname: orderer96
+      - Hostname: orderer97
+      - Hostname: orderer98
+      - Hostname: orderer99
+
+
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+    Users:
+      Count: 1
+
+  # - Name: Org2
+  #   Domain: org2.example.com
+  #   EnableNodeOUs: true
+  #   Template:
+  #     Count: 2
+  #   Users:
+  #     Count: 1

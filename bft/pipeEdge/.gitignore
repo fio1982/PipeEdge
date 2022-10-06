@@ -1,0 +1,13 @@
+*~
+*.pyc
+venv/
+.idea/
+
+/dist
+/p2pnetwork*.egg-info
+/build
+/.eggs
+
+/data
+
+/app/recv_data

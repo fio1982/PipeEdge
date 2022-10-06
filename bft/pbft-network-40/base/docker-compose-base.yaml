@@ -1,0 +1,967 @@
+version: '2'
+services:
+  orderer0.example.com:
+    container_name: orderer0.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6050
+        - PBFT_LISTEN_PORT=9070
+        - PBFT_NODE_ID=0
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9070
+        - SESTUFF_NODE_ID=0
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer0
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6050:6050
+      - 9070:9070
+
+  orderer1.example.com:
+    container_name: orderer1.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6051
+        - PBFT_LISTEN_PORT=9071
+        - PBFT_NODE_ID=1
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9071
+        - SESTUFF_NODE_ID=1
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer1
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6051:6051
+      - 9071:9071
+
+  orderer2.example.com:
+    container_name: orderer2.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6052
+        - PBFT_LISTEN_PORT=9072
+        - PBFT_NODE_ID=2
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9072
+        - SESTUFF_NODE_ID=2
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer2
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6052:6052
+      - 9072:9072
+
+  orderer3.example.com:
+    container_name: orderer3.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6053
+        - PBFT_LISTEN_PORT=9073
+        - PBFT_NODE_ID=3
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9073
+        - SESTUFF_NODE_ID=3
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer3
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6053:6053
+      - 9073:9073
+
+  orderer4.example.com:
+    container_name: orderer4.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6054
+        - PBFT_LISTEN_PORT=9074
+        - PBFT_NODE_ID=4
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9074
+        - SESTUFF_NODE_ID=4
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer4
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6054:6054
+      - 9074:9074
+
+  orderer5.example.com:
+    container_name: orderer5.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6055
+        - PBFT_LISTEN_PORT=9075
+        - PBFT_NODE_ID=5
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9075
+        - SESTUFF_NODE_ID=5
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer5.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer5.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer5
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6055:6055
+      - 9075:9075
+
+  orderer6.example.com:
+    container_name: orderer6.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6056
+        - PBFT_LISTEN_PORT=9076
+        - PBFT_NODE_ID=6
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9076
+        - SESTUFF_NODE_ID=6
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer6.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer6.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer6
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6056:6056
+      - 9076:9076
+
+  orderer7.example.com:
+    container_name: orderer7.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6057
+        - PBFT_LISTEN_PORT=9077
+        - PBFT_NODE_ID=7
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9077
+        - SESTUFF_NODE_ID=7
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer7.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer7.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer7
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6057:6057
+      - 9077:9077
+
+  orderer8.example.com:
+    container_name: orderer8.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6058
+        - PBFT_LISTEN_PORT=9078
+        - PBFT_NODE_ID=8
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9078
+        - SESTUFF_NODE_ID=8
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer8.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer8.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer8
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6058:6058
+      - 9078:9078
+
+  orderer9.example.com:
+    container_name: orderer9.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6059
+        - PBFT_LISTEN_PORT=9079
+        - PBFT_NODE_ID=9
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9079
+        - SESTUFF_NODE_ID=9
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer9.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer9.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer9
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6059:6059
+      - 9079:9079
+
+  orderer10.example.com:
+    container_name: orderer10.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6060
+        - PBFT_LISTEN_PORT=9080
+        - PBFT_NODE_ID=10
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9080
+        - SESTUFF_NODE_ID=10
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer10.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer10.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer10
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6060:6060
+      - 9080:9080
+
+  orderer11.example.com:
+    container_name: orderer11.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6061
+        - PBFT_LISTEN_PORT=9081
+        - PBFT_NODE_ID=11
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9081
+        - SESTUFF_NODE_ID=11
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer11.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer11.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer11
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6061:6061
+      - 9081:9081
+
+  orderer12.example.com:
+    container_name: orderer12.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6062
+        - PBFT_LISTEN_PORT=9082
+        - PBFT_NODE_ID=12
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9082
+        - SESTUFF_NODE_ID=12
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer12.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer12.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer12
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6062:6062
+      - 9082:9082
+
+  orderer13.example.com:
+    container_name: orderer13.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6063
+        - PBFT_LISTEN_PORT=9083
+        - PBFT_NODE_ID=13
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9083
+        - SESTUFF_NODE_ID=13
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer13.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer13.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer13
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6063:6063
+      - 9083:9083
+
+  orderer14.example.com:
+    container_name: orderer14.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6064
+        - PBFT_LISTEN_PORT=9084
+        - PBFT_NODE_ID=14
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9084
+        - SESTUFF_NODE_ID=14
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer14.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer14.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer14
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6064:6064
+      - 9084:9084
+
+  orderer15.example.com:
+    container_name: orderer15.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6065
+        - PBFT_LISTEN_PORT=9085
+        - PBFT_NODE_ID=15
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9085
+        - SESTUFF_NODE_ID=15
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer15.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer15.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer15
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6065:6065
+      - 9085:9085
+
+  orderer16.example.com:
+    container_name: orderer16.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6066
+        - PBFT_LISTEN_PORT=9086
+        - PBFT_NODE_ID=16
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9086
+        - SESTUFF_NODE_ID=16
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer16.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer16.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer16
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6066:6066
+      - 9086:9086
+
+  orderer17.example.com:
+    container_name: orderer17.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6067
+        - PBFT_LISTEN_PORT=9087
+        - PBFT_NODE_ID=17
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9087
+        - SESTUFF_NODE_ID=17
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer17.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer17.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer17
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6067:6067
+      - 9087:9087
+
+  orderer18.example.com:
+    container_name: orderer18.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6068
+        - PBFT_LISTEN_PORT=9088
+        - PBFT_NODE_ID=18
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9088
+        - SESTUFF_NODE_ID=18
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer18.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer18.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer18
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6068:6068
+      - 9088:9088
+
+  orderer19.example.com:
+    container_name: orderer19.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6069
+        - PBFT_LISTEN_PORT=9089
+        - PBFT_NODE_ID=19
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9089
+        - SESTUFF_NODE_ID=19
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer19.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer19.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer19
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6069:6069
+      - 9089:9089
+
+  orderer20.example.com:
+    container_name: orderer20.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6070
+        - PBFT_LISTEN_PORT=9090
+        - PBFT_NODE_ID=20
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9090
+        - SESTUFF_NODE_ID=20
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer20.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer20.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer20
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6070:6070
+      - 9090:9090
+
+  orderer21.example.com:
+    container_name: orderer21.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6071
+        - PBFT_LISTEN_PORT=9091
+        - PBFT_NODE_ID=21
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9091
+        - SESTUFF_NODE_ID=21
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer21.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer21.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer21
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6071:6071
+      - 9091:9091
+
+  orderer22.example.com:
+    container_name: orderer22.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6072
+        - PBFT_LISTEN_PORT=9092
+        - PBFT_NODE_ID=22
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9092
+        - SESTUFF_NODE_ID=22
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer22.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer22.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer22
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6072:6072
+      - 9092:9092
+
+  orderer23.example.com:
+    container_name: orderer23.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6073
+        - PBFT_LISTEN_PORT=9093
+        - PBFT_NODE_ID=23
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9093
+        - SESTUFF_NODE_ID=23
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer23.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer23.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer23
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6073:6073
+      - 9093:9093
+
+  orderer24.example.com:
+    container_name: orderer24.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6074
+        - PBFT_LISTEN_PORT=9094
+        - PBFT_NODE_ID=24
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9094
+        - SESTUFF_NODE_ID=24
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer24.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer24.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer24
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6074:6074
+      - 9094:9094
+
+  orderer25.example.com:
+    container_name: orderer25.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6075
+        - PBFT_LISTEN_PORT=9095
+        - PBFT_NODE_ID=25
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9095
+        - SESTUFF_NODE_ID=25
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer25.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer25.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer25
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6075:6075
+      - 9095:9095
+
+  orderer26.example.com:
+    container_name: orderer26.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6076
+        - PBFT_LISTEN_PORT=9096
+        - PBFT_NODE_ID=26
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9096
+        - SESTUFF_NODE_ID=26
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer26.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer26.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer26
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6076:6076
+      - 9096:9096
+
+  orderer27.example.com:
+    container_name: orderer27.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6077
+        - PBFT_LISTEN_PORT=9097
+        - PBFT_NODE_ID=27
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9097
+        - SESTUFF_NODE_ID=27
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer27.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer27.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer27
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6077:6077
+      - 9097:9097
+
+  orderer28.example.com:
+    container_name: orderer28.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6078
+        - PBFT_LISTEN_PORT=9098
+        - PBFT_NODE_ID=28
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9098
+        - SESTUFF_NODE_ID=28
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer28.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer28.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer28
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6078:6078
+      - 9098:9098
+
+  orderer29.example.com:
+    container_name: orderer29.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6079
+        - PBFT_LISTEN_PORT=9099
+        - PBFT_NODE_ID=29
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9099
+        - SESTUFF_NODE_ID=29
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer29.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer29.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer29
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6079:6079
+      - 9099:9099
+
+  orderer30.example.com:
+    container_name: orderer30.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6080
+        - PBFT_LISTEN_PORT=9100
+        - PBFT_NODE_ID=30
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9100
+        - SESTUFF_NODE_ID=30
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer30.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer30.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer30
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6080:6080
+      - 9100:9100
+
+  orderer31.example.com:
+    container_name: orderer31.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6081
+        - PBFT_LISTEN_PORT=9101
+        - PBFT_NODE_ID=31
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9101
+        - SESTUFF_NODE_ID=31
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer31.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer31.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer31
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6081:6081
+      - 9101:9101
+
+  orderer32.example.com:
+    container_name: orderer32.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6082
+        - PBFT_LISTEN_PORT=9102
+        - PBFT_NODE_ID=32
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9102
+        - SESTUFF_NODE_ID=32
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer32.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer32.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer32
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6082:6082
+      - 9102:9102
+
+  orderer33.example.com:
+    container_name: orderer33.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6083
+        - PBFT_LISTEN_PORT=9103
+        - PBFT_NODE_ID=33
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9103
+        - SESTUFF_NODE_ID=33
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer33.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer33.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer33
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6083:6083
+      - 9103:9103
+
+  orderer34.example.com:
+    container_name: orderer34.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6084
+        - PBFT_LISTEN_PORT=9104
+        - PBFT_NODE_ID=34
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9104
+        - SESTUFF_NODE_ID=34
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer34.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer34.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer34
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6084:6084
+      - 9104:9104
+
+  orderer35.example.com:
+    container_name: orderer35.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6085
+        - PBFT_LISTEN_PORT=9105
+        - PBFT_NODE_ID=35
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9105
+        - SESTUFF_NODE_ID=35
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer35.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer35.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer35
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6085:6085
+      - 9105:9105
+
+  orderer36.example.com:
+    container_name: orderer36.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6086
+        - PBFT_LISTEN_PORT=9106
+        - PBFT_NODE_ID=36
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9106
+        - SESTUFF_NODE_ID=36
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer36.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer36.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer36
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6086:6086
+      - 9106:9106
+
+  orderer37.example.com:
+    container_name: orderer37.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6087
+        - PBFT_LISTEN_PORT=9107
+        - PBFT_NODE_ID=37
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9107
+        - SESTUFF_NODE_ID=37
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer37.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer37.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer37
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6087:6087
+      - 9107:9107
+
+  orderer38.example.com:
+    container_name: orderer38.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6088
+        - PBFT_LISTEN_PORT=9108
+        - PBFT_NODE_ID=38
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9108
+        - SESTUFF_NODE_ID=38
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer38.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer38.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer38
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6088:6088
+      - 9108:9108
+
+  orderer39.example.com:
+    container_name: orderer39.example.com
+    extends:
+      file: peer-base.yaml
+      service: orderer-base
+    environment:
+        - ORDERER_GENERAL_LISTENPORT=6089
+        - PBFT_LISTEN_PORT=9109
+        - PBFT_NODE_ID=39
+        - PBFT_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+        - SESTUFF_LISTEN_PORT=9109
+        - SESTUFF_NODE_ID=39
+        - SESTUFF_NODE_TABLE=http://orderer0.example.com:9070;http://orderer1.example.com:9071;http://orderer2.example.com:9072;http://orderer3.example.com:9073;http://orderer4.example.com:9074;http://orderer5.example.com:9075;http://orderer6.example.com:9076;http://orderer7.example.com:9077;http://orderer8.example.com:9078;http://orderer9.example.com:9079;http://orderer10.example.com:9080;http://orderer11.example.com:9081;http://orderer12.example.com:9082;http://orderer13.example.com:9083;http://orderer14.example.com:9084;http://orderer15.example.com:9085;http://orderer16.example.com:9086;http://orderer17.example.com:9087;http://orderer18.example.com:9088;http://orderer19.example.com:9089;http://orderer20.example.com:9090;http://orderer21.example.com:9091;http://orderer22.example.com:9092;http://orderer23.example.com:9093;http://orderer24.example.com:9094;http://orderer25.example.com:9095;http://orderer26.example.com:9096;http://orderer27.example.com:9097;http://orderer28.example.com:9098;http://orderer29.example.com:9099;http://orderer30.example.com:9100;http://orderer31.example.com:9101;http://orderer32.example.com:9102;http://orderer33.example.com:9103;http://orderer34.example.com:9104;http://orderer35.example.com:9105;http://orderer36.example.com:9106;http://orderer37.example.com:9107;http://orderer38.example.com:9108;http://orderer39.example.com:9109
+    volumes:
+        - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer39.example.com/msp:/var/hyperledger/orderer/msp
+        - ../crypto-config/ordererOrganizations/example.com/orderers/orderer39.example.com/tls:/var/hyperledger/orderer/tls
+        - ../production/orderer:/var/hyperledger/production/orderer39
+        - ../../client/reputation:/opt/gopath/src/github.com/hyperledger/fabric
+    ports:
+      - 6089:6089
+      - 9109:9109
+
+
+  peer0.org1.example.com:
+    container_name: peer0.org1.example.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.org1.example.com
+      - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.org1.example.com:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.example.com:8051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.example.com:7051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/etc/hyperledger/fabric/tls
+        - ../production/org1:/var/hyperledger/production/peer0
+    ports:
+      - 7051:7051
+
+  peer1.org1.example.com:
+    container_name: peer1.org1.example.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.org1.example.com
+      - CORE_PEER_ADDRESS=peer1.org1.example.com:8051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
+      - CORE_PEER_CHAINCODEADDRESS=peer1.org1.example.com:8052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.example.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.example.com:8051
+      - CORE_PEER_LOCALMSPID=Org1MSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls:/etc/hyperledger/fabric/tls
+        - ../production/org1:/var/hyperledger/production/peer1
+
+    ports:
+      - 8051:8051
