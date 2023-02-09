@@ -90,14 +90,16 @@ in bft/pbft-network folder run:
 ./byfn.sh down
 
 # Run application to access ledger
-in /bft/client
+Direct to bft/client folder, run following command:
 
 node enrollAdmin.js
 node registerUser.js 
 
 # Run pipeEdge
-in /bft/pipeEdge/app
-choose system size files. e.g. edge_server10 with 10 edge servers.
-run:
+Direct to /bft/pipeEdge/app folder, run following command:
+
+Choose system size files. e.g. edge_server10 with 10 edge servers.
+
+Start up system:
 ./edge_server10.py
 
