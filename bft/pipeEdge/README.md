@@ -1,12 +1,6 @@
 # Python implementation of a peer-to-peer decentralized network
 
 
-# Evolution of the software
-
-
-# Design
-
-
 ## You have two options
 
 
