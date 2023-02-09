@@ -1,25 +1,29 @@
 # Requirements
-go 1.15
-fabric 1.4.x
-nodejs v8'
-docker
+Go 1.15  
+Hyperledger Fabric 1.4.x  
+Nodejs v8  
+Docker  
 
 # Download required binaries
 curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.4.4 1.4.4 0.4.22
-it will download fabric-samples
-copy binaries located in fabric-samples/bin to bft/bin
+It will download fabric-samples
+Copy binaries located in fabric-samples/bin to bft/bin
 
 # Create bft orderer and gen tool
+Use following command to generate orderer and gen tool:
+
 make orderer-docker
 
 make configtxgen
 
-replace 'orderer' and 'configtxgen' in bft/bin folder with generated ones
+Replace 'orderer' and 'configtxgen' in bft/bin folder with generated ones
 
 # Other envirnment setting
 - GO installation
 
-download go1.15
+Download go1.15
+
+Use following command to create working path:
 
 mkdir ${HOME}/gopath
 
@@ -47,7 +51,7 @@ Update:
 
 source ~/.bashrc
 
-View:
+Check Go environment:
 
 go env
 
@@ -72,7 +76,7 @@ go get golang/x/tools/go/packages
 go mod vendor
 
 # Note
-if above environment cannot be established, you can download binaries from https://drive.google.com/file/d/1BRS7d2bV7XdPL_DTPppjjFaEOMPAw30v/view?usp=sharing
+If above environment cannot be established, you can download binaries from https://drive.google.com/file/d/1BRS7d2bV7XdPL_DTPppjjFaEOMPAw30v/view?usp=sharing
 copy the folders in side bft to src/github.com/hyperledger/fabric/bft
 DO NOT delete bin file
 
